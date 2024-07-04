@@ -71,6 +71,10 @@ flutter:
     - ./lib/images/wudang.jpeg
     - ./lib/images/code.jpeg
     - ./lib/images/
+  fonts:
+    - family: myfont
+      fonts:
+        - asset: ./lib/fonts/myfont.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
