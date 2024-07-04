@@ -1,13 +1,69 @@
 import 'package:flutter/material.dart';
+import 'font.dart';
+import 'easing.dart';
+import 'value.dart';
+import 'mask.dart';
+import 'charts.dart';
+import 'opacity.dart';
+import 'hero.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(
-      title: 'Opacity不透明度示例',
-      home: LayoutDemo(),
-    ),
-  );
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter动画示例',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Main(),
+    );
+  }
 }
+
+class Main extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> list = [
+      FontAnimation(),
+      EasingAnimation(),
+      ValueAnimation(),
+      MaskAnimation(),
+      ChartsAnimation(),
+      OpacityAnimation(),
+      HeroAnimation(),
+    ];
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('动画示例'),
+      ),
+      body: ListView(
+        children: list.map((widget) {
+          return ListTile(
+            title: Text(widget.runtimeType.toString()), // Get the type of the widget
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => widget),
+              );
+            },
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+
+
+// void main() {
+//   runApp(
+//     const MaterialApp(
+//       title: 'Opacity不透明度示例',
+//       home: LayoutDemo(),
+//     ),
+//   );
+// }
 
 class LayoutDemo extends StatelessWidget {
   const LayoutDemo({super.key});
